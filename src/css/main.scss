@@ -102,6 +102,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 2.1rem;
 }
 
+p {
+	color: #fff;
+	font-size: 1.8rem;
+}
+
 p img {
 	margin: 0;
 }
@@ -804,7 +809,7 @@ header .row {
 		display: block;
 		margin-bottom: 0.25rem;
 		padding: 0;
-		font-size: 3.2rem;
+		font-size: 3rem;
 		border: none;
 		color: #fff;
 		font-family: "merriweather-bold", serif;
@@ -901,7 +906,9 @@ a.menu-toggle {
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-
+.main-navigation li:last-child {
+	border: none;
+}
 /* navigation links */
 .main-navigation li a {
 	display: block;
@@ -929,12 +936,12 @@ a.menu-toggle {
  * - 
  */
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:1024px) {
 	#main-nav-wrap {
 		display: block;
 		width: 100%;
 		position: absolute;
-		top: 69px;
+		top: 66px;
 		right: 0;
 	}
 	a.menu-toggle {
@@ -942,15 +949,15 @@ a.menu-toggle {
 		width: 40px;
 		height: 40px;
 		position: absolute;
-		top: 50%;
-		right: 30px;
+		top: 48%;
+		right: 24px;
 		margin-top: -20px;
 	}
 	a.menu-toggle span {
 		display: block;
 		width: 24px;
 		height: 3px;
-		margin-top: -1.5px;
+		margin-top: -0.5px;
 		position: absolute;
 		right: 8px;
 		top: 50%;
@@ -1023,24 +1030,33 @@ a.menu-toggle {
 		-ms-transform: rotate(-45deg);
 		transform: rotate(-45deg);
 	}
+
+	.main-navigation.collapsed {
+		display: none;
+	}
+
 	.main-navigation {
-		background: #14171c;
-		padding: 48px 42px 54px 42px;
+		background: rgba(20, 23, 28, 0.95);
+		padding: 2px 42px;
 		margin: 0;
 		width: 100%;
 		height: auto;
 		clear: both;
-		display: none;
+		display: block;
 	}
 	.main-navigation > li {
 		display: block;
 		height: auto;
 		text-align: left;
 		border-bottom: 1px dotted rgba(200, 200, 200, 0.08);
-		padding: 0;
-	}
-	.main-navigation > li:first-child {
-		border-top: 1px dotted rgba(200, 200, 200, 0.08);
+
+		&:first-child {
+			padding-top: 1px;
+		}
+
+		&:last-child {
+			padding-bottom: 1px;
+		}
 	}
 	.main-navigation li a {
 		display: block;
@@ -1066,17 +1082,6 @@ a.menu-toggle {
 	}
 	.main-navigation li.current > a:after {
 		display: none;
-	}
-}
-
-/**
- * make sure the menu is visible on larger screens
- * -
- */
-
-@media only screen and (min-width:769px) {
-	#main-nav-wrap ul.main-navigation {
-		display: block !important;
 	}
 }
 
@@ -1143,7 +1148,6 @@ a.menu-toggle {
 	padding: 0 3rem !important;
 	margin-top: 1.2rem;
 	font-family: "raleway-heavy", sans-serif;
-	font-size: 1.4rem;
 	text-transform: uppercase;
 	letter-spacing: .4rem;
 }

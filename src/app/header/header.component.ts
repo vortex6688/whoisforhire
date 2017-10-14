@@ -9,6 +9,8 @@ import { SignupComponent } from "../employer/signup/signup.component";
 export class HeaderComponent {
   constructor(private modalService: NgbModal) {}
 
+  isCollapsed = true;
+
   open() {
     const modalRef = this.modalService.open(SignupComponent);
     modalRef.componentInstance.name = 'Employer Registration Form';

@@ -7,7 +7,7 @@
     </div>
 
     <nav id="main-nav-wrap">
-      <ul class="main-navigation">
+      <ul class="main-navigation" [ngClass]="{'collapsed': isCollapsed }">
         <li class="current"><a routerLink="/home" routerLinkActive="active">Home</a></li>
         <li><a routerLink="/process" routerLinkActive="active">Process</a></li>
         <li><a routerLink="/employer" routerLinkActive="active">Employer</a></li>
@@ -17,7 +17,7 @@
       </ul>
     </nav>
 
-    <a class="menu-toggle"><span>Menu</span></a>
+    <a class="menu-toggle" (click)="isCollapsed = !isCollapsed;"><span>Menu</span></a>
     
   </div>   	
 </header> 
