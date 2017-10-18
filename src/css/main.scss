@@ -1179,8 +1179,8 @@ a.menu-toggle {
 	}
 }
 @media only screen and (max-width:768px) {
-	#intro {
-		min-height: 660px;
+	.intro {
+		height: auto;
 	}
 	.intro-content h1 {
 		font-size: 4.2rem;
@@ -1306,7 +1306,7 @@ a.menu-toggle {
 }
 @media only screen and (max-width:768px) {
 	.process {
-		padding-bottom: 27rem;
+		padding-bottom: 2rem;
 	}
 
 	.process-content .right-side,
@@ -1322,11 +1322,11 @@ a.menu-toggle {
 	}
 
 	.process-content .image-part {
-		width: 300px;
-		position: absolute;
-		bottom: -630px;
-		left: 50%;
-		margin-left: -150px;
+		//width: 300px;
+		//position: absolute;
+		//left: 50%;
+		//margin-left: -150px;
+		display: none;
 	}
 }
 
