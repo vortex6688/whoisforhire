@@ -1,12 +1,20 @@
 <!-- Sign Up -->
 <div class="modal-header">
-	<h4 class="modal-title">{{name}}</h4>
-	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-		<span aria-hidden="true">&times;</span>
+	<h4 class="modal-title">Form</h4>
+	<button type="button" class="close" style="margin-top: -0.6rem;" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+		<span aria-hidden="true" style="font-size: 4rem; font-family: merriweather-regular, serif;">&times;</span>
 	</button>
 </div>
 <div class="modal-body">
-	<p>Hello</p>
+	<h5>Please enter your information to register a new account</h5>
+	<h5>Please click <a href="#">Log in</a> if you already have an account</h5>
+	<form>
+		<label for="email">Email</label>
+		<input type="email" id="email" ngModel placeholder="Enter Your Email" required>
+		<label for="password">Create a password</label>
+		<input type="password" id="password" ngModel placeholder="Enter Your Password" required>
+		<button type="submit">Submit</button>
+	</form>
 </div>
 <div class="modal-footer">
 	<button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>

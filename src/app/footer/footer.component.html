@@ -5,15 +5,13 @@
 
     <div class="row">  
 
-        <div class="col-four tab-full mob-full footer-info">            
+        <div class="col-four tab-full mob-full footer-info" style="margin-bottom: 2rem;">            
 
             <a><h2 style="color: #fff;">Who Is For Hire</h2></a>
 
             <p>
-            120 eldert st<br>
-            Brooklyn, NY, 11207 US<br>
-            vortex@gmail.com<br> 
-            +123-456-789
+              120 eldert st Brooklyn, NY, 11207 US<br>
+              vortex@gmail.com<br />Phone: 123-456-789
             </p>
 
         </div> <!-- /footer-info -->
@@ -27,7 +25,7 @@
           <li><a routerLink="/employer" routerLinkActive="active">Employer</a></li>
           <li><a routerLink="/jobs" routerLinkActive="active">Jobs</a></li>
           <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
-          <li><a routerLink="/home" routerLinkActive="active">Sign Up</a></li>
+          <li><a (click)="open()">Sign Up</a></li>
           <li><a href="#">Terms</a></li>
           <li><a href="#">Privacy Policy</a></li>
         </ul>

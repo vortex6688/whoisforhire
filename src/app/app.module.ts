@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +15,7 @@ import { EmployerComponent } from './employer/employer.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { SignupComponent } from "./employer/signup/signup.component";
 import { AboutComponent } from "./about/about.component";
+import { AuthService } from "./auth/auth.service";
 
 const appRoutes: Routes = [
   {
@@ -59,7 +63,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
