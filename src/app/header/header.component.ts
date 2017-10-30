@@ -8,16 +8,7 @@ import { SignupComponent } from "../employer/signup/signup.component";
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
-  constructor(private modalService: NgbModal, private router: Router) {
-
-    window.addEventListener('mouseup', function(event){
-      var box = document.querySelector(".main-navigation");
-      var button = document.querySelector(".menu-toggle");
-      if (event.target != box && event.target != button){
-            box.classList.add('collapsed');
-        }
-    });
-  }
+  constructor(private modalService: NgbModal, private router: Router) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -30,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   toggleNav() {
     document.querySelector(".main-navigation").classList.toggle('collapsed');
+    document.querySelector(".menu-toggle").classList.toggle('is-clicked');
   }
 
   open() {

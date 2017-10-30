@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -40,6 +41,15 @@ const appRoutes: Routes = [
   }
 ];
 
+const firebaseConfig = {
+  apiKey: "AIzaSyA3DGmf3NxyBtFp4A_BwLyn3YzoBVYwcg8",
+  authDomain: "whoisforhire.firebaseapp.com",
+  databaseURL: "https://whoisforhire.firebaseio.com",
+  projectId: "whoisforhire",
+  storageBucket: "whoisforhire.appspot.com",
+  messagingSenderId: "228861063727"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +68,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -66,4 +78,6 @@ const appRoutes: Routes = [
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+ }
