@@ -33,14 +33,14 @@ export class SignupComponent implements OnInit {
   loginGoogle() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .catch(function (error){
-      alert('${error.message} Please try again')
+      console.log('${error.message} Please try again');
     })
   }
 
   loginFacebook() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     .catch(function (error){
-      alert('${error.message} Please try again')
+      console.log('${error.message} Please try again');
     })
   }
 

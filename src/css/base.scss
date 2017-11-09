@@ -321,17 +321,10 @@ textarea {
  */
 
 .row {
-	width: 94%;
-	max-width: 1140px;
-	margin: 0 auto;
-}
-.row:before, .row:after {
-	content: "";
-	display: table;
-}
-.row:after {
+	margin: 0 1.5em;
 	clear: both;
 }
+
 .row .row {
 	width: auto;
 	max-width: none;
@@ -390,6 +383,10 @@ textarea {
  */
 
 @media screen and (max-width:1024px) {
+	.row { 
+		margin: 0 1em;
+	}
+
 	.row .row {
 		margin-left: -18px;
 		margin-right: -18px;
@@ -407,8 +404,8 @@ textarea {
 @media screen and (max-width:768px) {
 	.row {
 		width: auto;
-		padding-left: 30px;
-		padding-right: 30px;
+		padding-left: 0.5em;
+		padding-right: 0.5em;
 	}
 	.row .row {
 		padding-left: 0;
@@ -445,10 +442,6 @@ textarea {
  */
 
 @media screen and (max-width:600px) {
-	.row {
-		padding-left: 25px;
-		padding-right: 25px;
-	}
 	.row .row {
 		margin-left: -10px;
 		margin-right: -10px;
@@ -476,10 +469,6 @@ textarea {
  */
 
 @media screen and (max-width:400px) {
-	.row {
-		padding-left: 30px;
-		padding-right: 30px;
-	}
 	.row .row {
 		padding-left: 0;
 		padding-right: 0;
