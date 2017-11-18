@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from "../employer/signup/signup.component";
+import { SignupComponent } from "../auth/signup/signup.component";
 
 @Component({
   selector: 'footer-component',

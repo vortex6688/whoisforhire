@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from "../employer/signup/signup.component";
+import { SignupComponent } from "../auth/signup/signup.component";
+import { LoginComponent } from "../auth/login/login.component";
 
 @Component({
   selector: 'header-component',
@@ -11,12 +12,6 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(private modalService: NgbModal, private router: Router) {
-
-    window.addEventListener('click', function(event) {
-      var box = document.querySelector(".main-navigation");
-      var button = document.querySelector(".menu-toggle");
-
-    });
   }
 
   ngOnInit() {
@@ -28,10 +23,17 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  open() {
+  openSignUp() {
     const modalRef = this.modalService.open(SignupComponent);
     modalRef.componentInstance.name = 'Employer Registration Form';
   }
+
+  openLogIn() {
+    const modalRef = this.modalService.open(LoginComponent);
+    modalRef.componentInstance.name = 'Employer Registration Form';
+  }
+
+  isOpen:boolean;
 
   openNav() {
     document.querySelector(".main-navigation").classList.toggle('collapsed');

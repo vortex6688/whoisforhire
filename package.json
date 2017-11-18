@@ -23,11 +23,12 @@
     "@angular/router": "^4.0.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
     "angular2-click-outside": "^0.1.0",
-    "angularfire2": "^4.0.0-rc.0",
+    "angularfire2": "^4.0.0-rc0",
     "bootstrap": "^4.0.0-beta",
     "browser-sync": "^2.18.13",
     "core-js": "^2.4.1",
     "firebase": "^3.9.0",
+    "ngx-facebook": "^2.4.0",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },

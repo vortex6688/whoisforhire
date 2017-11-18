@@ -1,24 +1,23 @@
 <!-- header -->
 <header class="sticky">
-  <div class="row" style="">
+  <div class="row">
 
     <div class="logo">
       <a href="index.html"><h1>Who Is For Hire</h1></a>
     </div>
 
-    <nav id="main-nav-wrap">
-      <ul class="main-navigation collapsed">
-        <li class="current"><a routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/process" routerLinkActive="active">Process</a></li>
-        <li><a routerLink="/employer" routerLinkActive="active">Employer</a></li>
-        <li><a routerLink="/jobs" routerLinkActive="active">Job Listings</a></li>
-        <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>	
-        <li class="highlight with-sep"><a style="cursor: pointer;" (click)="open()">Sign Up</a></li>				
-      </ul>
-    </nav>
-
     <a class="menu-toggle" (click)="openNav()"><img style="width: 100%;" src="./assets/images/icon-toggle.svg" /></a>
     
-  </div>   	
-</header> 
+  </div>	
+</header>
+<nav id="main-nav-wrap">
+  <ul class="main-navigation collapsed">
+    <li class="current"><a (click)="openNav()" routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a (click)="openNav()" routerLink="/process" routerLinkActive="active">Process</a></li>
+    <li><a (click)="openNav()" routerLink="/jobs" routerLinkActive="active">Job Listings</a></li>
+    <li><a (click)="openNav()" routerLink="/about" routerLinkActive="active">About Us</a></li>	
+    <li class="highlight with-sep"><a style="cursor: pointer;" (click)="openSignUp()">Sign Up</a></li>
+    <li class="highlight with-sep"><a style="cursor: pointer;" (click)="openLogIn()">Log In</a></li>			
+  </ul>
+</nav>
 <!-- /header -->

@@ -340,12 +340,6 @@ form,
 }
 
 
-.process-content {
-	padding-top: 2em;
-	max-width: 1140px;
-	margin: auto;
-}
-
 /** 
  * ===================================================================
  * forms
@@ -586,7 +580,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  */
 
 .process-intro {
-	max-width: 700px;
+	max-width: 1200px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -605,21 +599,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 	color: #000;
 	font-weight: 700;
 }
-.process-intro .with-bottom-line {
-	position: relative;
-	overflow: hidden;
-}
-.process-intro .with-bottom-line::after {
-	display: block;
-	background-color: #05bca9;
-	width: 120px;
-	height: 3px;
-	content: '\0020';
-	position: absolute;
-	left: 50%;
-	bottom: 0;
-	margin-left: -60px;
-}
+
 @media only screen and (max-width:600px) {
 	section h1 {
 		font-size: 2.5rem;
@@ -670,7 +650,6 @@ header .row {
 	width: auto;
 	height: 66px;
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 }
 
@@ -688,7 +667,7 @@ header .row {
 
 .sticky {
 	position: fixed;
-	background: rgba(0, 0, 0, 0.85);
+	background: rgba(0, 0, 0, 0.9);
 	top: 0;
 }
 
@@ -718,6 +697,10 @@ header .row {
 #main-nav-wrap, .main-navigation {
 	margin: 0;
 	padding: 0;
+	position: fixed;
+	top: 0;
+	right: 1.5em;
+	z-index: 600;
 }
 
 /* hide toggle button */
@@ -832,8 +815,6 @@ a.menu-toggle {
 		display: block;
 		width: 100%;
 		position: absolute;
-		top: 66px;
-		right: 0;
 	}
 	a.menu-toggle {
 		display: block;
@@ -849,9 +830,10 @@ a.menu-toggle {
 	.main-navigation {
 		background: rgba(20, 23, 28, 0.95);
 		padding: 2px 42px;
-		margin: 0;
+		right: 0;
+		top: 66px;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		clear: both;
 		display: block;
 	}
@@ -1046,59 +1028,12 @@ a.menu-toggle {
 	padding-bottom: 12rem;
 	overflow: hidden;
 }
-.process-content {
-	position: relative;
-	text-align: center;
-}
-.process-content .right-side,
-.process-content .left-side,
-.process-content .image-part {
-	width: 33.33333%;
-	font-size: 15px;
-	line-height: 27px;
-}
-.process-content .right-side, .process-content .left-side {
-	padding: 0 6% 24px;
-	position: absolute;
-	top: 0;
-}
-.process-content .right-side {
-	right: 0;
-}
-.process-content .left-side {
-	left: 0;
-}
-.process-content .image-part {
-	margin: 0 auto;
-	height: 660px;
-	background-image: url("../assets/images/appdesign-1.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	-webkit-background-size: contain;
-	-moz-background-size: contain;
-	background-size: contain;
-}
-.process-content .item[data-item]::before {
-	background: #38424e;
-	color: #FFFFFF;
-	border-radius: 100%;
-	font-family: "montserrat-bold", sans-serif;
-	content: attr(data-item);
-	display: inline-block;
-	font-size: 18px;
-	height: 42px;
-	width: 42px;
-	line-height: 42px;
-	text-align: center;
-	vertical-align: middle;
-	margin-bottom: 1.5rem;
-}
-.process-content h4 {
-	color: #05bca9;
+
+.process-intro h4 {
 	letter-spacing: .1rem;
 	margin: 1.5rem 0;
+	color: #737373;
 }
-
 /**
  * responsive:
  * process
@@ -1161,23 +1096,8 @@ a.menu-toggle {
 	position: relative;
 }
 
-#features {
-	background: #090909 url(../assets/images/features-bg.jpg) no-repeat center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	padding-top: 12rem;
-	padding-bottom: 12rem;
-	color: white;
-}
-#features .process-intro h1 {
-	color: white;
-}
 #features .process-intro h5 {
 	color: rgba(255, 255, 255, 0.5);
-}
-#features .process-intro p {
-	color: rgba(255, 255, 255, 0.7);
 }
 .features-content {
 	max-width: 1200px;
@@ -1263,7 +1183,7 @@ footer ul li {
 	padding-left: 0;
 }
 .footer-main {
-	padding-top: 4rem;
+	padding-top: 1.5rem;
 	padding-bottom: 4rem;
 	background: #171b23;
 }
