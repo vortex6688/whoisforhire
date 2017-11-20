@@ -9,17 +9,14 @@
  *	TOC:
  *	01. webfonts and iconfonts 
  *	02. base style overrides
- *  03. preloader
- *  04. forms
- *  05. buttons
- *  06. common styles
- *  07. header styles
- *  08. intro section
+ *  03. forms
+ *  04. buttons
+ *  05. common styles
+ *  06. header styles
+ *  07. Shadow Overlay
+ *  08. Home and About Section
  *  09. process section
- *  10. about section
- *  12. testimomials section 
- *  13. faq section 
- *	16. footer
+ *	10. footer
  *
  * =================================================================== 
  */
@@ -115,7 +112,6 @@ p.lead {
 	font-family: "merriweather-light", serif;
 	font-size: 1.8rem;
 	line-height: 1.8;
-	color: #737373;
 }
 @media only screen and (max-width:768px) {
 	p.lead {
@@ -643,18 +639,15 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 header {
 	width: 100%;
 	z-index: 600;
-	background: transparent;
 	transition: all 0.3s ease-in-out;
+	height: 66px;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.9);
+	top: 0;
 }
 header .row {
 	width: auto;
-	height: 66px;
-	display: flex;
 	justify-content: space-between;
-}
-
-.logo {
-	align-self: center;
 }
 
 .logo h1 {
@@ -663,12 +656,6 @@ header .row {
 	font-size: 3.6rem;
 	color: #fff;
 	font-family: "merriweather-bold", serif;
-}
-
-.sticky {
-	position: fixed;
-	background: rgba(0, 0, 0, 0.9);
-	top: 0;
 }
 
 /**
@@ -684,7 +671,6 @@ header .row {
 		padding: 0;
 		font-size: 2.8rem;
 		border: none;
-		color: #fff;
 		font-family: "merriweather-bold", serif;
 	}
 }
@@ -878,54 +864,39 @@ a.menu-toggle {
 	}
 }
 
-
 /** 
  * ===================================================================
- * intro section
+ * Home and About Section
  *
  * ------------------------------------------------------------------- 
  */
 
-.intro {
+.home {
 	background: #14181E url(../assets/images/restaurant-bg.jpg) no-repeat center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
 	background-size: cover;
 	width: 100%;
 	height: 100%;
 	min-height: 720px;
-	display: table;
-	position: relative;
 }
-.shadow-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
+
+.about {
+	background: #14181E url(../assets/images/features-bg.jpg) no-repeat center;
+	background-size: cover;
 	width: 100%;
 	height: 100%;
-	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 25%, transparent 56%);  /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 25%, transparent 56%);  /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 25%, transparent 56%);  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#73000000', endColorstr='#00000000', GradientType=0);  /* IE6-9 */
+	min-height: 720px;
 }
-.intro-content {
-	display: table-cell;
-	vertical-align: middle;
-	text-align: center;
-	-webkit-transform: translateY(-1.2rem);
-	-ms-transform: translateY(-1.2rem);
-	transform: translateY(-1.2rem);
-}
-.intro-content h1 {
-	color: #FFFFFF;
+
+.home h1 {
 	font-family: "merriweather-bold", serif;
 	font-size: 5.4rem;
 	line-height: 1.334;
 	margin-left: auto;
 	margin-right: auto;
 }
-.intro-content h4 {
-	color: #fff;
+
+.home h4,
+.about h4 {
 	font-size: 2.2rem;
 	line-height: 1.667;
 	margin-bottom: 2rem;
@@ -933,7 +904,8 @@ a.menu-toggle {
 	letter-spacing: .25rem;
 }
 
-.intro-content .button {
+.home .button,
+.about .button {
 	border-color: #FFFFFF;
 	color: #FFFFFF;
 	height: 6.6rem;
@@ -944,74 +916,41 @@ a.menu-toggle {
 	text-transform: uppercase;
 	letter-spacing: .4rem;
 }
-.intro-content .button:hover, .intro-content .button:focus {
+.home .button:hover,
+.about .button:hover {
 	color: #05bca9;
 	border-color: #05bca9;
 }
 
 /**
- * responsive:
- * intro
+ * Responsive:
+ * Home and About
  * -
  */
 
 @media only screen and (max-width:1024px) {
-	.intro-content {
-		-webkit-transform: translateY(0);
-		-ms-transform: translateY(0);
-		transform: translateY(0);
-	}
-	.intro-content h1 {
+	.home h1 {
 		font-size: 4.8rem;
-		max-width: 700px;
-	}
-	.intro-content .video-link a {
-		width: 72px;
-		height: 72px;
-		margin-bottom: 3rem;
 	}
 }
+
 @media only screen and (max-width:768px) {
-	.intro {
+	.home,
+	.about {
 		height: auto;
 	}
-	.intro-content h1 {
+
+	.home h1 {
 		font-size: 4.2rem;
-		max-width: 550px;
-	}
-	.intro-content h4 {
-		letter-spacing: .15rem;
 	}
 }
 @media only screen and (max-width:600px) {
-	#intro {
+	.home {
 		min-height: 600px;
 	}
-	.intro-content h1 {
-		font-size: 3.8rem;
+	.home h1 {
+		font-size: 2.8rem;
 		margin-bottom: .9rem;
-	}
-	.intro-content .video-link a {
-		width: 66px;
-		height: 66px;
-		margin-bottom: 1.5rem;
-	}
-}
-@media only screen and (max-width:400px) {
-	#intro {
-		min-height: 550px;
-	}
-	.intro-content h1 {
-		font-size: 3.2rem;
-		letter-spacing: 0.025rem;
-	}
-	.intro-content h5 {
-		font-size: 1.4rem;
-		letter-spacing: .15rem;
-	}
-	.intro-content .video-link a {
-		width: 60px;
-		height: 60px;
 	}
 }
 
@@ -1023,131 +962,19 @@ a.menu-toggle {
  */
 
 .process {
-	background: #FFFFFF;
-	padding-top: 10rem;
-	padding-bottom: 12rem;
-	overflow: hidden;
+	background: #14181E url(../assets/images/features-bg.jpg) no-repeat center;
+	background-size: cover;
+	width: 100%;
+	height: auto;
+	min-height: 100%;
 }
 
-.process-intro h4 {
-	letter-spacing: .1rem;
-	margin: 1.5rem 0;
-	color: #737373;
-}
 /**
  * responsive:
  * process
  * -
  */
 
-@media only screen and (max-width:1024px) {
-	.process-content .right-side, .process-content .left-side {
-		padding: 0 3% 24px;
-		width: 35%;
-	}
-	.process-content .image-part {
-		height: 600px;
-		width: 30%;
-	}
-}
-@media only screen and (max-width:768px) {
-	.process {
-		padding-bottom: 2rem;
-	}
-
-	.process-content .right-side,
-	.process-content .left-side {
-		position: static;
-		width: 100%;
-		max-width: 480px;
-		font-size: 1.6rem;
-		line-height: 3rem;
-		margin-left: auto;
-		margin-right: auto;
-		padding-bottom: 0;
-	}
-
-	.process-content .image-part {
-		//width: 300px;
-		//position: absolute;
-		//left: 50%;
-		//margin-left: -150px;
-		display: none;
-	}
-}
-
-
-/** 
- * ===================================================================
- * features section
- * about section
- * ------------------------------------------------------------------- 
- */
-
-.about {
-	background: #14181E url(../assets/images/features-bg.jpg) no-repeat center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	width: 100%;
-	height: 100%;
-	min-height: 720px;
-	display: table;
-	position: relative;
-}
-
-#features .process-intro h5 {
-	color: rgba(255, 255, 255, 0.5);
-}
-.features-content {
-	max-width: 1200px;
-}
-.features-list {
-	margin-top: 1.2rem;
-	text-align: center;
-}
-.features-list .feature {
-	margin-bottom: 1.2rem;
-	padding: 0 32px;
-}
-.features-list .icon {
-	display: inline-block;
-	margin-bottom: 2.1rem;
-}
-.features-list .icon i {
-	font-size: 4.8rem;
-}
-.features-list .h05 {
-	font-size: 1.7rem;
-	line-height: 1.765;
-	color: #05bca9;
-	margin-bottom: 1.8rem;
-}
-
-/**
- * responsive:
- * features
- * -
- */
-
-@media only screen and (max-width:768px) {
-	.features-content {
-		max-width: 600px;
-	}
-	.features-list .feature {
-		padding: 0 15px;
-	}
-}
-@media only screen and (max-width:600px) {
-	.features-list .feature {
-		padding: 0 10px;
-	}
-}
-@media only screen and (max-width:400px) {
-	.features-list .feature {
-		padding: 0;
-	}
-}
 
 
 /** 
@@ -1182,79 +1009,21 @@ footer ul {
 footer ul li {
 	padding-left: 0;
 }
-.footer-main {
-	padding-top: 1.5rem;
-	padding-bottom: 4rem;
+footer {
 	background: #171b23;
 }
-.footer-main ul {
+footer-main ul {
 	font-size: 1.5rem;
 }
-.footer-main ul li {
+footer ul li {
 	font-family: "raleway-bold", sans-serif;
 	list-style: none;
 }
-.footer-main ul a, .footer-main ul a:visited {
+footer ul a, footer ul a:visited {
 	color: #465166;
 }
-.footer-main ul a:hover, .footer-main ul a:focus {
+footer ul a:hover, footer ul a:focus {
 	color: #FFFFFF;
-}
-.footer-main .footer-logo {
-	width: 162px;
-	height: 39px;
-	background: url("../assets/images/footer-logo.png") no-repeat center;
-	background-size: 162px 39px;
-	margin: -.6rem 0 2.1rem -.3rem;
-	display: block;
-}
-.footer-main .footer-subscribe p {
-	margin-bottom: 1.2rem;
-}
-.footer-main .footer-subscribe .subscribe-form #mc-form {
-	padding: 0;
-}
-.footer-main .footer-subscribe .subscribe-form input[type="email"] {
-	padding: .6rem 2rem;
-	border-radius: 5px;
-	background: #232933;
-	border: none;
-	width: 100%;
-	font-family: "raleway-regular", sans-serif;
-	color: #bababa;
-	margin-bottom: 1.8rem;
-}
-.footer-main .footer-subscribe .subscribe-form input[type="submit"] {
-	display: none;
-}
-.footer-main .footer-subscribe .subscribe-form .subscribe-message {
-	font-family: "raleway-bold", sans-serif;
-	color: #FFFFFF;
-}
-.footer-main .footer-subscribe .subscribe-form .subscribe-message i {
-	color: #ff7b29;
-	margin-right: 5px;
-}
-.footer-main .footer-subscribe .subscribe-form ::-webkit-input-placeholder {
-	color: #545454;
-}
-.footer-main .footer-subscribe .subscribe-form :-moz-placeholder {
-	/* Firefox 18- */
-	color: #545454;
-}
-.footer-main .footer-subscribe .subscribe-form ::-moz-placeholder {
-	/* Firefox 19+ */
-	color: #545454;
-}
-.footer-main .footer-subscribe .subscribe-form :-ms-input-placeholder {
-	color: #545454;
-}
-.footer-main .footer-subscribe .subscribe-form .placeholder {
-	color: #545454 !important;
-}
-.footer-bottom {
-	margin-top: 3rem;
-	text-align: center;
 }
 .footer-bottom .copyright span {
 	display: inline-block;
@@ -1276,19 +1045,12 @@ footer ul li {
  */
 
 @media only screen and (max-width:768px) {
-	.footer-main .footer-logo {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.footer-main .footer-info {
+	footer {
 		text-align: center;
 	}
 }
 
 @media only screen and (max-width:600px) {
-	.footer-main .site-links, .footer-main .social-links {
-		text-align: center;
-	}
 	.footer-main .site-links h4, .footer-main .social-links h4 {
 		border: none;
 	}
@@ -1308,4 +1070,27 @@ footer ul li {
 	}
 }
 
-/*# sourceMappingURL=main.css.map */
+/** 
+ * ===================================================================
+ * Custom Utilities
+ *
+ * ------------------------------------------------------------------- 
+ */
+
+.dark-background h1,
+.dark-background h2,
+.dark-background h4,
+.dark-background p {
+	color: #fff;
+}
+
+.light-background h1,
+.light-background h2,
+.light-background h4,
+.light-background p {
+	color: #000;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}

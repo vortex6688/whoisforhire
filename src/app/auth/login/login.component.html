@@ -6,7 +6,7 @@
 	</button>
 </div>
 <div class="modal-body">
-	<h5>Please click <a href="#">Sign Up</a> if you do not have a registered account, or</h5>
+	<h5>Please click <a (click)="openSignUp()">Sign Up</a> if you do not have a registered account, or</h5>
 	<button class="loginBtn loginBtn--facebook" (click)="loginFacebook()" *ngIf="!(user | async)?.uid">
 		Login with Facebook
 	</button>

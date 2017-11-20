@@ -3,6 +3,10 @@ import { Router, NavigationEnd } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from "../auth/signup/signup.component";
 import { LoginComponent } from "../auth/login/login.component";
+import * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'header-component',
@@ -10,9 +14,7 @@ import { LoginComponent } from "../auth/login/login.component";
 })
 export class HeaderComponent implements OnInit {
 
-
-  constructor(private modalService: NgbModal, private router: Router) {
-  }
+  constructor(private modalService: NgbModal, private router: Router, private authService: AuthService, private afAuth: AngularFireAuth) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -33,9 +35,12 @@ export class HeaderComponent implements OnInit {
     modalRef.componentInstance.name = 'Employer Registration Form';
   }
 
-  isOpen:boolean;
+  logout() {
+    this.afAuth.auth.signOut();
+  }
 
   openNav() {
     document.querySelector(".main-navigation").classList.toggle('collapsed');
+    document.querySelector("body").classList.toggle('overflow-hidden');
   } 
 }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
 import { AuthService } from "../../auth/auth.service";
+import { SignupComponent } from "../signup/signup.component";
 
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   user: Observable<firebase.User>
 
-  constructor(public activeModal: NgbActiveModal, private authService: AuthService, private afAuth: AngularFireAuth, private router: Router) {
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private authService: AuthService, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
   }
 
@@ -43,6 +44,14 @@ export class LoginComponent implements OnInit {
     .catch(function (error){
       console.log('${error.message} Please try again');
     })
+  }
+
+  openSignUp() {
+    if(this.activeModal) {
+      this.activeModal.close();
+    }
+    const modalRef = this.modalService.open(SignupComponent);
+    modalRef.componentInstance.name = 'Employer Sign Up Form';
   }
 
   logout() {

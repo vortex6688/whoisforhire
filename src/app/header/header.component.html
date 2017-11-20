@@ -1,13 +1,10 @@
 <!-- header -->
-<header class="sticky">
-  <div class="row">
-
+<header class="row m-0">
+  <div class="col d-flex align-items-center justify-content-between">
     <div class="logo">
       <a href="index.html"><h1>Who Is For Hire</h1></a>
     </div>
-
     <a class="menu-toggle" (click)="openNav()"><img style="width: 100%;" src="./assets/images/icon-toggle.svg" /></a>
-    
   </div>	
 </header>
 <nav id="main-nav-wrap">
@@ -16,8 +13,9 @@
     <li><a (click)="openNav()" routerLink="/process" routerLinkActive="active">Process</a></li>
     <li><a (click)="openNav()" routerLink="/jobs" routerLinkActive="active">Job Listings</a></li>
     <li><a (click)="openNav()" routerLink="/about" routerLinkActive="active">About Us</a></li>	
-    <li class="highlight with-sep"><a style="cursor: pointer;" (click)="openSignUp()">Sign Up</a></li>
-    <li class="highlight with-sep"><a style="cursor: pointer;" (click)="openLogIn()">Log In</a></li>			
+    <li class="highlight with-sep"><a (click)="openSignUp()">Sign Up</a></li>
+    <li class="highlight"><a (click)="openLogIn()">Log In</a></li>
+    <li class="highlight with-sep"><a (click)="logout()">Logout</a></li>			
   </ul>
 </nav>
 <!-- /header -->

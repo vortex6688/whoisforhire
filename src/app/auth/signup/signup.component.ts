@@ -48,6 +48,9 @@ export class SignupComponent implements OnInit {
   }
 
   openLogIn() {
+    if(this.activeModal) {
+      this.activeModal.close();
+    }
     const modalRef = this.modalService.open(LoginComponent);
     modalRef.componentInstance.name = 'Employer Log In Form';
   }

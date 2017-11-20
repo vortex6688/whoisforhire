@@ -1,37 +1,30 @@
 <!-- Process Section -->
-  <section class="process">  
-
-   	<div class="row process-intro">
-   		<div class="col-twelve">
-   			<h4 style="color: #05bca9;">The Process</h4>
-   			<h2>How it works?</h2>
-				<h4 style="color: #05bca9;" class="lead">If you are looking to hire anybody for a job, click<br /><a routerLink="/employer" routerLinkActive="active">Employer</a></h4>
-
-					<h4>1 Sign Up</h4>
+  <section class="process row m-0 dark-background text-center align-items-center">  
+		<div class="col align-self-start mt-6">
+			<h4>The Process</h4>
+			<h1>How it works?</h1>
+			<div class="row justify-content-around my-md-6 my-xs-5">
+				<div class="col-md-4 col-sm-12">
+					<h2 style="color: #fff; outline: none; cursor: pointer;" routerLink="/employer" routerLinkActive="active">
+						<img style="width: 2em; height: 2em" src="./assets/images/man.svg" /><br />Employer
+					</h2>
+					<h4 style="color: #05bca9;">1. Sign Up</h4>
 					<p class="lead">If you are an employer and looking to hire somebody,<br /> 
 					please <a (click)="openSignUp()">Sign Up</a> first.</p>
-					<p class="lead">Or <a (click)="openLogIn()">Log In</a> if you have registered already.</p>
-
-					<h4>2 Post Your Job Ad</h4>
+					<p class="lead">Or <a (click)="openLogIn()" class="pointer">Log In</a> if you have registered already.</p>
+					<h4 style="color: #05bca9;">2. Post Your Job Ad</h4>
 					<p class="lead">Once you filled up our short registration form and submitted the information, you will be able to post your ad with the description of the job / position you need an employee for ...</p>
-				 
-					<h4 style="color: #05bca9;" class="lead">If you are looking for a job, click <br/><br/> <a routerLink="/jobs" routerLinkActive="active">Job Seeker</a></h4>
-		 
-					<h4>Pick A Category</h4>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<h2 style="color: #fff; outline: none; cursor: pointer;" routerLink="/jobs" routerLinkActive="active">
+						<img style="width: 2em; height: 2em" src="./assets/images/job-seeker.svg" /><br />Job Seeker
+					</h2>
+					<h4 style="color: #05bca9;">1. Pick A Category</h4>
 					<p class="lead">If you are looking to get hired, pick the job category you like and browse through the job ads</p>
-
-					<h4>Apply For The Job You Like</h4>
+					<h4 style="color: #05bca9;">2. Apply For The Job You Like</h4>
 					<p class="lead">Once you found the ad you like, contact the employer to apply for the selected position! That's all ...</p>
-
-				</div>   		
-   	</div>
-
-   	<div class="row process-content">
-   		
-   		<div class="right-side">
-
-   		</div> 		
-   	</div>
-
+				</div>
+			</div>
+		</div> 		
   </section> 
 <!-- /process-->    
