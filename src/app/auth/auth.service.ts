@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
+  token: string;
   user: Observable<firebase.User>;
 
   constructor(private afAuth: AngularFireAuth) {
@@ -12,9 +13,7 @@ export class AuthService {
   }
 
   signup(email: string, password: string) {
-    this.afAuth
-      .auth
-      .createUserWithEmailAndPassword(email, password)
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Success!', value);
       })
@@ -24,14 +23,33 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    this.afAuth
-      .auth
-      .signInWithEmailAndPassword(email, password)
+    this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
+        firebase.auth().currentUser.getToken()
+        .then(
+            (token: string) => this.token = token
+        )
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
       });
+  }
+
+  getToken() {
+    firebase.auth().currentUser.getToken()
+      .then(
+        (token: string) => this.token = token
+      );
+    return this.token;
+  }
+
+  isAuthenticated() {
+    return this.token != null;
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
+    this.token = null;
   }
 }

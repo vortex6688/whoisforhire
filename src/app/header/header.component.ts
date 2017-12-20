@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.authService.logout();
   }
 
   openNav() {

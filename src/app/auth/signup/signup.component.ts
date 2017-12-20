@@ -56,6 +56,6 @@ export class SignupComponent implements OnInit {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.authService.logout();
   }
 }

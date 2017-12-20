@@ -12,10 +12,12 @@
     <li class="current"><a (click)="openNav()" routerLink="/home" routerLinkActive="active">Home</a></li>
     <li><a (click)="openNav()" routerLink="/process" routerLinkActive="active">Process</a></li>
     <li><a (click)="openNav()" routerLink="/jobs" routerLinkActive="active">Job Listings</a></li>
-    <li><a (click)="openNav()" routerLink="/about" routerLinkActive="active">About Us</a></li>	
-    <li class="highlight with-sep"><a (click)="openSignUp()">Sign Up</a></li>
-    <li class="highlight"><a (click)="openLogIn()">Log In</a></li>
-    <li class="highlight with-sep"><a (click)="logout()">Logout</a></li>			
+    <li><a (click)="openNav()" routerLink="/about" routerLinkActive="active">About Us</a></li>
+    <ng-template [ngIf]="!authService.isAuthenticated()">
+      <li class="highlight with-sep"><a (click)="openSignUp()">Sign Up</a></li>
+      <li class="highlight"><a (click)="openLogIn()">Log In</a></li>
+    </ng-template>
+    <li *ngIf="authService.isAuthenticated()" class="highlight with-sep"><a (click)="logout()">Logout</a></li>			
   </ul>
 </nav>
 <!-- /header -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from "angularfire2/auth";
@@ -15,7 +15,7 @@ import { SignupComponent } from "../signup/signup.component";
   templateUrl: './login.component.html',
   providers: [AngularFireAuth]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   user: Observable<firebase.User>
 
@@ -23,13 +23,10 @@ export class LoginComponent implements OnInit {
     this.user = this.afAuth.authState;
   }
 
-  ngOnInit() {
-  }
-
   onLogIn(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signup(email, password);
+    this.authService.login(email, password);
   }
 
   loginGoogle() {
@@ -55,6 +52,6 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.authService.logout();
   }
 }

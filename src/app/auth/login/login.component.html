@@ -21,6 +21,7 @@
 		<label for="password">Enter Your Password</label>
 		<input type="password" id="password" name="password" ngModel placeholder="Enter Your Password" required>
 		<button type="submit">Submit</button>
+		<button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
 	</form>
 </div>
 <div class="modal-footer">
