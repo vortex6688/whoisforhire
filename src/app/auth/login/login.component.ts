@@ -28,7 +28,7 @@ export class LoginComponent {
     const password = form.value.password;
     this.authService.login(email, password);
   }
-
+/*
   loginGoogle() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .catch(function (error){
@@ -42,7 +42,7 @@ export class LoginComponent {
       console.log('${error.message} Please try again');
     })
   }
-
+*/
   openSignUp() {
     if(this.activeModal) {
       this.activeModal.close();

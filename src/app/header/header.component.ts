@@ -14,7 +14,7 @@ import { AuthService } from "../auth/auth.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, private router: Router, private authService: AuthService, private afAuth: AngularFireAuth) {}
+  constructor(private modalService: NgbModal, private router: Router, public authService: AuthService, private afAuth: AngularFireAuth) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
