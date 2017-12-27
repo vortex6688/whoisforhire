@@ -31,6 +31,9 @@ export class SignupComponent implements OnInit {
     this.authService.signup(email, password);
   }
 
+  /*
+  TODO FIX SOCIAL LOGIN
+
   loginGoogle() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .catch((err) => console.log(err));
@@ -46,6 +49,7 @@ export class SignupComponent implements OnInit {
       }
     });
   }
+  */
 
   openLogIn() {
     if(this.activeModal) {

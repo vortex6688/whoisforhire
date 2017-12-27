@@ -9,6 +9,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { EmployerComponent } from './employer/employer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,6 +19,7 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./about/about.component";
 import { AuthService } from "./auth/auth.service";
+import { AuthGuard } from "./auth/auth-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -36,6 +38,10 @@ const appRoutes: Routes = [
   },
   { path: 'about',
     component: AboutComponent
+  },
+  { path: 'employer',
+    component: EmployerComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
@@ -58,7 +64,8 @@ export const firebaseConfig = {
     JobsComponent,
     SignupComponent,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    EmployerComponent
   ],
   entryComponents: [
     SignupComponent,
@@ -75,9 +82,7 @@ export const firebaseConfig = {
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [AuthService, AngularFireAuth],
+  providers: [AuthService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-
- }
+export class AppModule { }
