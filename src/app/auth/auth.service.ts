@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
+  
   token: string;
   user: Observable<firebase.User>;
 
@@ -52,5 +53,6 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut();
     this.token = null;
+    this.router.navigate(['/process']);
   }
 }
