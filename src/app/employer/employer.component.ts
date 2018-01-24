@@ -7,8 +7,5 @@ import { Router } from "@angular/router";
   templateUrl: './employer.component.html'
 })
 export class EmployerComponent {
-  token: string;
-
   constructor (private authService: AuthService, private router: Router) {}
-
 }

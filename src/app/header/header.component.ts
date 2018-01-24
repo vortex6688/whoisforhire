@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from "../auth/signup/signup.component";
 import { LoginComponent } from "../auth/login/login.component";
-import * as firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AuthService } from "../auth/auth.service";
@@ -14,7 +13,13 @@ import { AuthService } from "../auth/auth.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, private router: Router, public authService: AuthService, private afAuth: AngularFireAuth) {}
+  isLoggedIn: boolean;
+  loggedInUser: string;
+
+  constructor(private modalService: NgbModal,
+    private router: Router,
+    public authService: AuthService,
+    private afAuth: AngularFireAuth) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -23,25 +28,29 @@ export class HeaderComponent implements OnInit {
         }
         window.scrollTo(0, 0);
     });
-  }
 
-  openSignUp() {
-    const modalRef = this.modalService.open(SignupComponent);
-    modalRef.componentInstance.name = 'Employer Registration Form';
-  }
-
-  openLogIn() {
-    const modalRef = this.modalService.open(LoginComponent);
-    modalRef.componentInstance.name = 'Employer Registration Form';
+    this.authService.getAuth().subscribe(auth => {
+      if(auth) {
+        this.isLoggedIn = true;
+        this.loggedInUser = auth.email;
+      } else {
+        this.isLoggedIn = false;
+      }
+    });
   }
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['/process']);
   }
 
   toggleNav() {
     document.querySelector(".main-navigation").classList.toggle('collapsed');
-    document.querySelector("body").classList.toggle('overflow-hidden');
+      if (document.querySelector(".main-navigation").classList.contains('collapsed') ) {
+        document.querySelector("body").classList.remove('overflow-hidden');
+      } else {
+        document.querySelector("body").classList.add('overflow-hidden');
+      }
   }
 
   openNav() {

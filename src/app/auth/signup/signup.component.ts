@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from "angularfire2/auth";
 import { Observable } from 'rxjs/Observable';
-import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 import { AuthService } from "../auth.service";
 import { LoginComponent } from "../login/login.component";
@@ -15,48 +14,33 @@ import { LoginComponent } from "../login/login.component";
 })
 export class SignupComponent implements OnInit {
 
-  user: Observable<firebase.User>
+  email: string;
+  password: string;
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private authService: AuthService, private afAuth: AngularFireAuth) {
-    this.user = this.afAuth.authState;
-  }
+  errorMessage: string;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    console.log(this.afAuth.authState);
-  }
-
-  onSignup(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
-    this.authService.signup(email, password);
-  }
-
-  /*
-  TODO FIX SOCIAL LOGIN
-
-  loginGoogle() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-    .catch((err) => console.log(err));
-  }
-
-  loginFacebook() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-    this.afAuth.authState.subscribe(res => {
-      if (res && res.uid) {
-        console.log('user is logged in');
-      } else {
-        console.log('user not logged in', (err) => console.log(err));
+    this.authService.getAuth().subscribe(auth => {
+      if(auth) {
+        this.router.navigate(['/employer']);
       }
     });
   }
-  */
 
-  openLogIn() {
-    if(this.activeModal) {
-      this.activeModal.close();
-    }
-    const modalRef = this.modalService.open(LoginComponent);
-    modalRef.componentInstance.name = 'Employer Log In Form';
+  onSubmitSignup() {
+    this.authService.register(this.email, this.password)
+      .then(res => {
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        this.errorMessage = err.message;
+        console.log(err);
+      });
   }
 
   logout() {

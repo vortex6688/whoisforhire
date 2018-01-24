@@ -350,7 +350,7 @@ input[type="password"],
 textarea,
 select {
 	display: block;
-	height: 6rem;
+	height: 5rem;
 	padding: 1.5rem 2rem;
 	border: 0;
 	outline: none;
@@ -497,20 +497,6 @@ input[type="button"] {
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-.button:focus,
-button:focus,
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus {
-	background: #bebebe;
-	color: #FFFFFF;
-	outline: 0;
-}
 
 .button.button-primary,
 button.button-primary,
@@ -574,24 +560,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 	background-size: cover;
 }
 
-.lead {
-	color: #000;
-	font-weight: 700;
-}
-
 @media only screen and (max-width:600px) {
 	section h1 {
 		font-size: 2.5rem;
 	}
 }
-
-/**
- * responsive:
- * common styles
- * - 
- */
-
-
 
 /** 
  * ===================================================================
@@ -835,13 +808,9 @@ a.menu-toggle {
  * ------------------------------------------------------------------- 
  */
 
-.home {
-	width: 100%;
-	height: 100%;
-	min-height: 720px;
-}
-
-.about {
+.home,
+.about,
+.login {
 	width: 100%;
 	height: 100%;
 	min-height: 720px;
@@ -972,9 +941,7 @@ footer ul li {
 footer {
 	background: #171b23;
 }
-footer-main ul {
-	font-size: 1.5rem;
-}
+
 footer ul li {
 	font-family: "raleway-bold", sans-serif;
 	list-style: none;
@@ -1039,7 +1006,9 @@ footer ul a:hover, footer ul a:focus {
 
 .dark-background h1,
 .dark-background h2,
+.dark-background h3,
 .dark-background h4,
+.dark-background h5,
 .dark-background p {
 	color: #fff;
 }
@@ -1053,4 +1022,13 @@ footer ul a:hover, footer ul a:focus {
 
 .overflow-hidden {
 	overflow: hidden;
+}
+
+button[disabled] {
+	cursor: not-allowed;
+	opacity: 0.7;
+
+	&:hover {
+
+	}
 }

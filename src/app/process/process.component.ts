@@ -10,14 +10,4 @@ import { LoginComponent } from "../auth/login/login.component";
 })
 export class ProcessComponent {
   constructor(private modalService: NgbModal) {}
-
-  openSignUp() {
-    const modalRef = this.modalService.open(SignupComponent);
-    modalRef.componentInstance.name = 'Employer Registration Form';
-  }
-
-    openLogIn() {
-    const modalRef = this.modalService.open(LoginComponent);
-    modalRef.componentInstance.name = 'Employer Registration Form';
-  }
 }
